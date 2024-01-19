@@ -50,7 +50,7 @@ module.exports = (env, options) => {
             from: "./src/manifest.json", 
             force: true, 
             transform: buffer => {
-              const commitHash = child_process.execSync("git rev-parse --short HEAD");
+              const commitHash = child_process.execSync("git rev-parse --short HEAD", { encoding: "utf-8" }).trim();
               return new TextDecoder().decode(buffer).replace(/\$COMMIT_HASH/, commitHash);
             }
           }
