@@ -21,7 +21,8 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "smarks@apps.anasta.si",
-      "strict_min_version": "75.0"
+      "strict_min_version": "75.0",
+      "update_url": "https://smarks.apps.anasta.si/updates.json"
     }
   }  
 }

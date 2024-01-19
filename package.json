@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "build": "webpack --config webpack.firefox.js --mode=production",
     "release": "web-ext build --overwrite-dest",
-    "signed-release": "web-ext sign"
+    "signed-release": "web-ext sign",
+    "generate-update-manifest": "./generate-update-manifest"
   },
   "repository": {
     "type": "git",
