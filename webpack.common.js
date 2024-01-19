@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const child_process = require("child_process");
 
 module.exports = (env, options) => {
   return {
@@ -20,6 +21,9 @@ module.exports = (env, options) => {
           use: 'ts-loader',
           exclude: /node_modules/,
         },
+        {
+
+        }
       ],
     },
     resolve: {
@@ -42,8 +46,15 @@ module.exports = (env, options) => {
       }),
       new CopyWebpackPlugin({
         patterns: [
-          { from: "./src/manifest.json", force: true }
-        ]
+          { 
+            from: "./src/manifest.json", 
+            force: true, 
+            transform: buffer => {
+              const commitHash = child_process.execSync("git rev-parse --short HEAD");
+              return new TextDecoder().decode(buffer).replace(/\$COMMIT_HASH/, commitHash);
+            }
+          }
+        ],
       })
     ],
     devtool: "cheap-module-source-map",
