@@ -12,7 +12,7 @@
     "build": "webpack --config webpack.firefox.js --mode=production",
     "release": "web-ext build --overwrite-dest",
     "signed-release": "web-ext sign --disable-progress-bar",
-    "generate-update-manifest": "./generate-update-manifest"
+    "generate-update-manifest": "./generate-update-manifest.sh"
   },
   "repository": {
     "type": "git",
