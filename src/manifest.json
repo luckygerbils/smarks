@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "S Marks",
   "description": "A set of utilities for bookmark syncing, editing and display  ",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "permissions": [
     "bookmarks",
     "storage",
