@@ -1,7 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 input {
     border: revert;
     padding: revert;
+}
+
+@media (prefers-color-scheme: dark) {
+    input {
+        background-color: theme('colors.zinc.700');
+        border-color: theme('colors.zinc.700')
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: theme('colors.zinc.800');
+        color: theme('colors.zinc.100');
+    }
 }

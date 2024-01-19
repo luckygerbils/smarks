@@ -35,7 +35,7 @@ export function EditPane({
   }
 
   return (
-    <div className="bg-zinc-100 px-4 py-2" style={{minHeight: "10em"}}>
+    <div className="px-4 py-2" style={{minHeight: "10em"}}>
       {node.type == "folder" ? 
           <>
             <label className="block">Name</label>

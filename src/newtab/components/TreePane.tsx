@@ -41,7 +41,7 @@ export function TreePane({
   }, [draggingNode, onMove, setDraggingNode]);
 
   return (
-    <div className="flex-none overflow-y-scroll">
+    <div className="flex-none overflow-y-scroll p-2">
       {(root.children ?? []).sort(byIndex).filter(child => child.url == null).map((rootChild, index) => 
         <TreePaneFolder 
           key={rootChild.id}
