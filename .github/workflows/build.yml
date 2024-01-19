@@ -15,7 +15,7 @@ jobs:
       - run: npm run check
       - run: npm run lint
       - run: npm run build
-      - run: npm run signed-release
+      - run: npm run release
         env:
           WEB_EXT_API_KEY: ${{ secrets.MOZILLA_API_KEY }}
           WEB_EXT_API_SECRET: ${{ secrets.MOZILLA_API_SECRET }}
