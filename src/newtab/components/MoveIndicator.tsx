@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, MouseEvent } from "react";
 
 interface MoveIndicatorProps {
   level?: number,
@@ -13,10 +13,10 @@ export function MoveIndicator({
 }: MoveIndicatorProps) {
   const [beingDraggedOver, setBeingDraggedOver] = useState(false);
   
-  const allowDrop = useCallback(event => event.preventDefault(), []);
+  const allowDrop = useCallback((event: MouseEvent) => event.preventDefault(), []);
   const show = useCallback(() => setBeingDraggedOver(true), [setBeingDraggedOver]);
   const hide = useCallback(() => setBeingDraggedOver(false), [setBeingDraggedOver]);
-  const drop = useCallback(e => {
+  const drop = useCallback((e: MouseEvent) => {
     e.preventDefault();
     setBeingDraggedOver(false);
     onDrop();

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 import { Page } from "./components";
 
 const [tree, state] = await Promise.all([
@@ -8,9 +8,9 @@ const [tree, state] = await Promise.all([
 ]);
 
 const { expandedFolders, currentFolderPath, selectedNodeId } = state;
-ReactDOM.render(
+const root = createRoot(document.getElementById("page"));
+root.render(
     <Page defaultRoot={tree[0]} 
         defaultExpandedFolders={expandedFolders} 
         defaultCurrentFolderPath={currentFolderPath}
-        selectedNodeId={selectedNodeId} />, 
-    document.getElementById("page"));
+        selectedNodeId={selectedNodeId} />);

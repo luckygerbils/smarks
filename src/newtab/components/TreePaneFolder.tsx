@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, MouseEvent } from "react";
 import { byIndex } from "../helpers";
 import c from "classnames";
 import { MoveIndicator } from ".";
@@ -58,7 +58,7 @@ export function TreePaneFolder({
     setIsBeingDragged(false);
   }, [setIsBeingDragged]);
 
-  const allowDrop = useCallback(event => event.preventDefault(), []);
+  const allowDrop = useCallback((event: MouseEvent) => event.preventDefault(), []);
   const dropInside = useCallback(() => {
     setIsDropInsideTarget(false);
     onDropInside(node);
@@ -69,7 +69,7 @@ export function TreePaneFolder({
   const markAsDropInsideTarget = useCallback(() => setIsDropInsideTarget(true), [setIsDropInsideTarget]);
   const unmarkAsDropInsideTarget = useCallback(() => setIsDropInsideTarget(false), [setIsDropInsideTarget]);
 
-  const showContextMenu = useCallback(e => {
+  const showContextMenu = useCallback((e: MouseEvent) => {
     e.stopPropagation();
     folderContextMenu({ node, onDelete, onMove });
   }, [node, onDelete, onMove]);

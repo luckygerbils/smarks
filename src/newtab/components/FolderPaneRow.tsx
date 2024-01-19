@@ -37,7 +37,7 @@ export function FolderPaneRow({
   const [isBeingDragged, setIsBeingDragged] = useState(false);
   const [isDropInsideTarget, setIsDropInsideTarget] = useState(false);
 
-  const showContextMenu = useCallback(e => {
+  const showContextMenu = useCallback((e: MouseEvent) => {
     e.stopPropagation();
     if (node.url != null) {
       bookmarkContextMenu({ node, onDelete });
@@ -54,8 +54,8 @@ export function FolderPaneRow({
     setIsBeingDragged(false);
   }, [setIsBeingDragged]);
 
-  const allowDrop = useCallback(event => event.preventDefault(), []);
-  const dropInside = useCallback(e => {
+  const allowDrop = useCallback((event: MouseEvent) => event.preventDefault(), []);
+  const dropInside = useCallback((e: MouseEvent) => {
     e.preventDefault(); // Prevent drop of link from navigating
     setIsDropInsideTarget(false);
     onDropInside(node);

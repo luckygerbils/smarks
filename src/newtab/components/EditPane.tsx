@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 
 interface EditPaneProps {
   node: browser.bookmarks.BookmarkTreeNode,
@@ -12,11 +12,11 @@ export function EditPane({
   const [title, setTitle] = useState(node.title);
   const [url, setUrl] = useState(node.url);
 
-  const updateTitle = useCallback(e => {
+  const updateTitle = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
     onChange(node, {title: e.target.value});
   }, [node, onChange]);
-  const updateUrl = useCallback(e => {
+  const updateUrl = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setUrl(e.target.value);
     onChange(node, {url: e.target.value});
   }, [node, onChange]);

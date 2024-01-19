@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from "react";
-import { EditPane, FolderPaneRow } from ".";
+import React, { useCallback, useState, MouseEvent } from "react";
+import { FolderPaneRow } from ".";
 import { byIndex } from "../helpers";
 import { folderContextMenu } from "../helpers/folderContextMenu";
 
@@ -24,7 +24,7 @@ export function FolderPane({
 } : FolderPaneProps) {
   const [draggingNode, setDraggingNode] = useState<browser.bookmarks.BookmarkTreeNode>(null);
 
-  const drag = useCallback(node => {
+  const drag = useCallback((node: browser.bookmarks.BookmarkTreeNode) => {
     setDraggingNode(node);
   }, []);
 
@@ -41,7 +41,7 @@ export function FolderPane({
     setDraggingNode(null);
   }, [draggingNode, onMove, setDraggingNode]);
 
-  const showContextMenu = useCallback(e => {
+  const showContextMenu = useCallback((e: MouseEvent) => {
     e.stopPropagation();
     folderContextMenu({ node: folder, onDelete, onMove })
   }, [folder, onDelete, onMove]);

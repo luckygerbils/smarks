@@ -23,7 +23,7 @@ export function TreePane({
 }: TreePaneProps) {
   const [draggingNode, setDraggingNode] = useState<browser.bookmarks.BookmarkTreeNode>(null);
 
-  const drag = useCallback(node => {
+  const drag = useCallback((node: browser.bookmarks.BookmarkTreeNode) => {
     setDraggingNode(node);
   }, []);
 
