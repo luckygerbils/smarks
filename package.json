@@ -7,10 +7,11 @@
     "dev:firefox": "webpack --watch --progress --config webpack.firefox.js --mode=development",
     "run:firefox": "web-ext run --target firefox-desktop --verbose --no-reload",
     "watch:firefox": "concurrently --kill-others 'npm:dev:firefox' 'npm:run:firefox'",
+    "check": "tsc --noEmit",
     "lint": "eslint .",
-    "build:firefox": "webpack --config webpack.firefox.js --mode=production",
-    "release:firefox": "web-ext build --overwrite-dest",
-    "signed-release:firefox": "web-ext sign --api-key \"$MOZILLA_API_KEY\" --api-secret \"$MOZILLA_API_SECRET\""
+    "build": "webpack --config webpack.firefox.js --mode=production",
+    "release": "web-ext build --overwrite-dest",
+    "signed-release": "web-ext sign"
   },
   "repository": {
     "type": "git",
